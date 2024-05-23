@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/employee/{id}', [EmployeeController::class, 'show']);
+Route::get('/employee/{id}', [HomeController::class, 'showEmployees']);
 
