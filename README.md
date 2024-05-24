@@ -40,3 +40,4 @@ php artisan list
 php artisan schedule:list
 
 php artisan app:custom-task
+"# laraveltraining.day2" 
