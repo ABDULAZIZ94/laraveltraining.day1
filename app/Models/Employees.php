@@ -47,4 +47,19 @@ class Employees extends Model
     {
         return $this->belongsToMany(Dep_Emp::class, 'dept_emp', 'emp_no', 'dept_no');
     }
+
+    /**
+     * Fungsi untuk soft delete pekerja berdasarkan nombor pekerja.
+     *
+     * @param int $empNo Nombor pekerja yang hendak dihapuskan secara soft delete.
+     * @return void
+     */
+    public function softDeleteEmployee($empNo)
+    {
+        $employee = self::find($empNo);
+        if ($employee) {
+            $employee->delete();
+        }
+    }
 }
+
