@@ -33,7 +33,7 @@ php artisan make:seeder UserSeeder
 php artisan db:seed --class=UserSeeder
 php artisan migrate:fresh --seed
 php artisan migrate:fresh --seed --seeder=UserSeeder
-
+php artisan make:migration add_softdelete_employees
 
 # optional command
 php artisan migrate:fresh --seed --seeder=UserSeeder
@@ -49,6 +49,8 @@ tail -f storage/logs/laravel.log //monitor logs
 php artisan list
 php artisan schedule:list
 php artisan app:custom-task
+
+
 
 
 

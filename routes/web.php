@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MethodSpoofing;
 use App\Http\Controllers\MethodSpoofingController;
@@ -23,8 +24,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', "index");
 
-Route::get('/employee/{id}', [HomeController::class, 'showEmployees']);
-Route::post('/employee/store', [HomeController::class, 'saveEmployee'])->name('employee.store');
+Route::group(['prefix'=>'employees'], function(){
+    Route::get('/', [EmployeesController::class, 'index'])->name('employees.index');
+    Route::get('/{id}', [EmployeesController::class, 'show'])->name('employees.show');
+    Route::post('/store', [EmployeesController::class, 'store'])->name('employees.store');
+    Route::put('/update', [EmployeesController::class, 'update'])->name('employees.put');
+    Route::patch('/edit', [EmployeesController::class, 'edit'])->name('employees.edit');
+    Route::delete('/destroy', [EmployeesController::class, 'destroy'])->name('employees.destroy');
+});
+
+// Route::get('/employee/{id}', [HomeController::class, 'showEmployees']);
+// Route::post('/employee/store', [HomeController::class, 'saveEmployee'])->name('employee.store');
+
 // Route::view('employee.index', 'employee.index',['employees_ary'=>$employees_ary])->name('employee.index'); // will error variable not found
 
 // Route::get('profile', function () {
