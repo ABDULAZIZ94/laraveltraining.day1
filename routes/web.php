@@ -21,7 +21,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::view('/', "index");
+
 Route::get('/employee/{id}', [HomeController::class, 'showEmployees']);
+Route::post('/employee/store', [HomeController::class, 'saveEmployee'])->name('employee.store');
+// Route::view('employee.index', 'employee.index',['employees_ary'=>$employees_ary])->name('employee.index'); // will error variable not found
 
 // Route::get('profile', function () {
 //     // Only authenticated users may enter...
@@ -45,12 +49,13 @@ Route::view('login2', 'auth.login',['name'=>'Laravel', 'age'=>20])->name('login2
 //     // ...
 // })->middleware('role:editor');
 
-Route::post('/employee/store', [HomeController::class, 'saveEmployee'])->name('employee.store');
-
-// Route::view('employee.index', 'employee.index',['employees_ary'=>$employees_ary])->name('employee.index'); // will error variable not found
-
 Route::group(['prefix'=>'method'], function(){
-    Route::get('/', [MethodSpoofingController::class, 'index'])->name('index');
+    Route::get('/', [MethodSpoofingController::class, 'index'])->name('forms.index');
+    Route::post('/spoof', [MethodSpoofingController::class, 'store'])->name('forms.store');
+    Route::put('/spoof', [MethodSpoofingController::class, 'update'])->name('forms.update');
+    Route::patch('/spoof', [MethodSpoofingController::class, 'modify'])->name('forms.modify');
+    Route::delete('/spoof', [MethodSpoofingController::class, 'destroy'])->name('forms.destroy');
+    Route::get('/spoof', [MethodSpoofingController::class, 'show'])->name('forms.show');
 });
 
 
