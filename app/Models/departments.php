@@ -17,4 +17,10 @@ class Department extends Model
         'dept_no',
         'dept_name',
     ];
+
+    public function employees()
+    {
+        return $this->belongsToMany(Dep_Emp::class, 'dept_emp', 'emp_no', 'dept_no');
+    }
 }
+

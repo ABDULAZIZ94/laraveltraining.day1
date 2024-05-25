@@ -20,4 +20,19 @@ class HomeController extends Controller
         $employee = Employees::find($id);
         return view('employee', ['employee' => $employee]);
     }
+
+    public function saveEmployee(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'position' => 'required|max:255',
+            'salary' => 'required|numeric'
+        ]);
+
+        Employees::create($validatedData);
+
+        return redirect()->route('employees.index')->with('success', 'Pekerja telah disimpan.');
+    }
+
 }

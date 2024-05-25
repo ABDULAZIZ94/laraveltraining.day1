@@ -33,4 +33,12 @@ class Employees extends Model
         'hire_date' => 'datetime:Y-m-d'
     ];
 
+    /**
+     * Mendapatkan jabatan-jabatan yang dikaitkan dengan pekerja.
+     */
+    public function departments()
+    {
+        return $this->belongsToMany(Dep_Emp::class, 'dept_emp', 'emp_no', 'dept_no');
+    }
+
 }
