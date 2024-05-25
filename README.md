@@ -39,3 +39,21 @@ php artisan migrate
 
 # model factory
 php artisan make:factory PostFactory
+php artisan make:middleware
+
+php artisan make:command CustomTask
+
+php artisan custom:task //to run task manually
+
+crontab -e //check server cronjob
+
+* * * * * cd /path/to/your/project && php artisan schedule:run >> /dev/null 2>&1 //this will execute cronjob
+
+tail -f storage/logs/laravel.log //monitor logs
+
+php artisan list
+
+php artisan schedule:list
+
+php artisan app:custom-task
+"# laraveltraining.day2" 
