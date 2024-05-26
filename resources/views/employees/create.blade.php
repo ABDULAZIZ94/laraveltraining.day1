@@ -19,13 +19,13 @@
 
                             <div class="form-group">
                                 <label for="first_name">Nama:</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" required>
+                                <input type="text" class="form-control" id="first_name" name="first_name" required maxlength="14">
                                 <div class="invalid-feedback">Sila masukkan nama.</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="last_name">Nama Akhir:</label>
-                                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                                <input type="text" class="form-control" id="last_name" name="last_name" required maxlength="16">
                                 <div class="invalid-feedback">Sila masukkan nama akhir.</div>
                             </div>
 
@@ -63,4 +63,5 @@
         </div>
     </div>
 @endsection
+
 

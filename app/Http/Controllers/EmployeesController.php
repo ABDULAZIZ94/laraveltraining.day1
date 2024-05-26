@@ -26,14 +26,22 @@ class EmployeesController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request);
+        $validatedData = $request->validate([
+            'emp_no' => 'required|integer',
+            'first_name' => 'required|string|max:14', // Diubah dari max:255 ke max:14
+            'last_name' => 'required|string|max:16', // Diubah dari max:255 ke max:16
+            'gender' => 'required|in:M,F',
+            'birth_date' => 'required|date',
+            'hire_date' => 'required|date'
+        ]);
+
         $employees = new Employees; 
-        $employees->emp_no = $request->emp_no; // Menyimpan nombor pekerja
-        $employees->first_name = $request->first_name;
-        $employees->last_name = $request->last_name;
-        $employees->gender = $request->gender;
-        $employees->birth_date = $request->birth_date; // Menyimpan tarikh lahir
-        $employees->hire_date = $request->hire_date;
+        $employees->emp_no = $validatedData['emp_no'];
+        $employees->first_name = $validatedData['first_name'];
+        $employees->last_name = $validatedData['last_name'];
+        $employees->gender = $validatedData['gender'];
+        $employees->birth_date = $validatedData['birth_date'];
+        $employees->hire_date = $validatedData['hire_date'];
         $employees->save();
         return redirect()->route('employees.index')->with('success', 'Data pegawai berjaya ditambah');
     }
@@ -44,12 +52,22 @@ class EmployeesController extends Controller
     }
     public function update(Request $request, $emp_no)
     {
+        $validatedData = $request->validate([
+            'emp_no' => 'required|integer',
+            'first_name' => 'required|string|max:14', // Diubah dari max:255 ke max:14
+            'last_name' => 'required|string|max:16', // Diubah dari max:255 ke max:16
+            'gender' => 'required|in:M,F',
+            'birth_date' => 'required|date',
+            'hire_date' => 'required|date'
+        ]);
+
         $employees = Employees::find($emp_no);
-        $employees->emp_no = $request->emp_no;
-        $employees->first_name = $request->first_name;
-        $employees->last_name = $request->last_name;
-        $employees->gender = $request->gender;
-        $employees->hire_date = $request->hire_date;
+        $employees->emp_no = $validatedData['emp_no'];
+        $employees->first_name = $validatedData['first_name'];
+        $employees->last_name = $validatedData['last_name'];
+        $employees->gender = $validatedData['gender'];
+        $employees->birth_date = $validatedData['birth_date'];
+        $employees->hire_date = $validatedData['hire_date'];
         $employees->save();
         return redirect()->route('employees.index')->with('success', 'Data pegawai berjaya dikemaskini');
     }

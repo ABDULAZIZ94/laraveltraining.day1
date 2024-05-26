@@ -20,13 +20,13 @@
             <div class="form-group">
                 <label for="first_name">First Name:</label>
                 <input type="text" class="form-control" id="first_name" name="first_name"
-                    value="{{ $employee->first_name }}" required>
+                    value="{{ $employee->first_name }}" required maxlength="14">
             </div>
 
             <div class="form-group">
                 <label for="last_name">Last Name:</label>
                 <input type="text" class="form-control" id="last_name" name="last_name" value="{{ $employee->last_name }}"
-                    required>
+                    required maxlength="16">
             </div>
 
             <div class="form-group">
