@@ -1,35 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <a href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('getForm').submit();">GET</a>
-            <form id="getForm" action="{{ route('forms.index') }}" method="GET" style="display: none;"></form>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-            <a href="#" class="btn btn-success" onclick="event.preventDefault(); document.getElementById('postForm').submit();">POST</a>
-            <form id="postForm" action="{{ route('forms.index') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-            <a href="#" class="btn btn-info" onclick="event.preventDefault(); document.getElementById('putForm').submit();">PUT</a>
-            <form id="putForm" action="{{ route('forms.index') }}" method="POST" style="display: none;">
-                @csrf
-                @method('PUT')
-            </form>
+        th {
+            background-color: #04AA6D;
+            color: white;
+        }
 
-            <a href="#" class="btn btn-warning" onclick="event.preventDefault(); document.getElementById('patchForm').submit();">PATCH</a>
-            <form id="patchForm" action="{{ route('forms.index') }}" method="POST" style="display: none;">
-                @csrf
-                @method('PATCH')
-            </form>
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 
-            <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deleteForm').submit();">DELETE</a>
-            <form id="deleteForm" action="{{ route('forms.index') }}" method="POST" style="display: none;">
-                @csrf
-                @method('DELETE')
-            </form>
-        </div>
-    </div>
-    </div>
+    <a href="{{ route('forms.create') }}" class="btn btn-success">Tambah Department Baru</a>
+    <a href="{{ route('forms.index') }}" class="btn btn-secondary">Kembali</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No. Department</th>
+                <th>Nama Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($department as $department)
+                <tr>
+                    <td>{{ $department->dept_no }}</td>
+                    <td>{{ $department->dept_name }}</td>
+                    <td>
+                        <a href="{{ route('forms.edit', ['id' => $department->id]) }}" >Kemaskini</a>
+                        <a href="{{ route('forms.patch', ['id' => $department->id]) }}">Patch</a>
+                        <form action="{{ route('spoof.destroy', ['id' => $department->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit">Padam</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endsection
