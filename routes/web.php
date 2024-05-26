@@ -85,10 +85,10 @@ Route::group(['prefix'=>'method'], function(){
     Route::view('/patch', 'forms.patch')->name('forms.patch');
     //backend controller function
     Route::post('/spoof', [MethodSpoofingController::class, 'store'])->name('spoof.store');
-    Route::get('/spoof', [MethodSpoofingController::class, 'show'])->name('spoof.show');
-    Route::put('/spoof', [MethodSpoofingController::class, 'update'])->name('spoof.update');
-    Route::patch('/spoof', [MethodSpoofingController::class, 'modify'])->name('spoof.modify');
-    Route::delete('/spoof', [MethodSpoofingController::class, 'destroy'])->name('spoof.destroy');
+    Route::get('/spoof/{dept_no}', [MethodSpoofingController::class, 'show'])->name('spoof.show');
+    Route::put('/spoof/{dept_no}', [MethodSpoofingController::class, 'update'])->name('spoof.update');
+    Route::patch('/spoof/{dept_no}', [MethodSpoofingController::class, 'modify'])->name('spoof.modify');
+    Route::delete('/spoof/{dept_no}', [MethodSpoofingController::class, 'destroy'])->name('spoof.destroy');
 });
 
 

@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- Tambahkan notifikasi di sini --}}
+    @if (session('success'))
+        <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 20px;">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px;">
+            {{ session('error') }}
+        </div>
+    @endif
     <style>
         table {
             width: 100%;
@@ -34,16 +46,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($department as $department)
+            @foreach ($departments as $department)
                 <tr>
                     <td>{{ $department->dept_no }}</td>
                     <td>{{ $department->dept_name }}</td>
                     <td>
-                        <a href="{{ route('forms.edit', ['id' => $department->id]) }}" >Kemaskini</a>
-                        <a href="{{ route('forms.patch', ['id' => $department->id]) }}">Patch</a>
-                        <form action="{{ route('spoof.destroy', ['id' => $department->id]) }}" method="POST">
+
+                        <a href="{{ route('forms.put', $department->dept_no) }}" class="btn btn-secondary">Put</a>
+                        <a href="{{ route('forms.patch', $department->dept_no) }}" class="btn btn-secondary">Patch</a>
+                          <form action="{{ route('spoof.destroy', $department->dept_no) }}" method="POST">
+                        {{-- <form action="/method/spoof/{{$department->dept_no}}" method="POST"> --}}
                             @method('DELETE')
                             @csrf
+                            {{-- @dump($department->dept_no) --}}
                             <button type="submit">Padam</button>
                         </form>
                     </td>

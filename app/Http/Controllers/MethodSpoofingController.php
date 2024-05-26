@@ -9,22 +9,18 @@ class MethodSpoofingController extends Controller
 {
     public function index()
     {
-        $department = Department::paginate(10); // Menggunakan pagination untuk mengambil 10 rekod
-        return view('forms.index', compact('department'));
+        $departments = Department::paginate(10); // Menggunakan pagination untuk mengambil 10 rekod
+        // dd($departments);
+        return view('forms.index', compact('departments'));
     }
-    public function destroy(Request $request)
+    public function destroy(Request $request, $dept_no)
     {
-        // dd($request);
-        $department = new Department;
-        $department->softDeleteEmployee($request->id);
+        // dd($request,$dept_no);
+        $department = Department::find($dept_no);
+        $department->delete();
         return redirect()->route('forms.index')->with('success', 'Data department berjaya dihapuskan');
     }
-    public function show($id)
-    {
-        $department = Department::find($id);
-        return view('forms.show', compact('department'));
-    }
-    public function store(Request $request)
+    public function create(Request $request)
     {
         // dd($request);
         $department = new Department;
@@ -33,17 +29,20 @@ class MethodSpoofingController extends Controller
         $department->save();
         return redirect()->route('forms.index')->with('success', 'Data department berjaya ditambah');
     }
-    public function edit($id)
-    {
-        $department = Department::find($id);
-        return view('forms.edit', compact('department'));
-    }
-    public function update(Request $request, $id)
+    public function put(Request $request, $id)
     {
         $department = Department::find($id);
         $department->dept_no = $request->dept_no;
         $department->dept_name = $request->dept_name;
         $department->save();
-        return redirect()->route('forms.index')->with('success', 'Data department berjaya dikemaskini');
+        return redirect()->route('forms.index')->with('success', 'Data department berjaya dikemaskini melalui method put');
+    }
+    public function patch(Request $request, $id)
+    {
+        $department = Department::find($id);
+        $department->dept_no = $request->dept_no;
+        $department->dept_name = $request->dept_name;
+        $department->save();
+        return redirect()->route('forms.index')->with('success', 'Data department berjaya dikemaskini melalui method patch');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Department extends Model
 {
@@ -12,6 +13,7 @@ class Department extends Model
     protected $table = 'departments';
     protected $primaryKey = 'dept_no';
     public $timestamps = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
         'dept_no',
