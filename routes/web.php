@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvancedController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\HomeController;
@@ -90,4 +91,7 @@ Route::group(['prefix'=>'method'], function(){
     Route::delete('/spoof/{dept_no}', [MethodSpoofingController::class, 'destroy'])->name('spoof.delete');
 });
 
+Route::prefix('advanced')->group(function () {
+    Route::get('/', [AdvancedController::class, 'index'])->name('advanced.index');
+});
 

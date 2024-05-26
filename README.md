@@ -36,7 +36,9 @@ php artisan migrate:fresh --seed --seeder=UserSeeder
 php artisan make:migration add_softdelete_employees
 composer dump-autoload
 php artisan route:list
-
+php artisan make:model Salary
+php artisan make:model Titles
+php artisan make:model Dep_manager 
 
 # optional command
 php artisan migrate:fresh --seed --seeder=UserSeeder

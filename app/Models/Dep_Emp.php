@@ -14,4 +14,12 @@ class Dep_Emp extends Model
     public $timestamps = false;
     protected $fillable = ['emp_no', 'dept_no', 'from_date', 'to_date'];
     protected $dates = ['from_date', 'to_date'];
+    public function employees()
+    {
+        return $this->hasMany(Employees::class, 'emp_no');
+    }
+    public function departments()
+    {
+        return $this->hasMany(Department::class, 'dept_no');
+    }
 }
