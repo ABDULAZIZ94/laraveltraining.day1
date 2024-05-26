@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <button id="loadRelations" class="btn btn-primary">Muat Hubungan</button>
+
+    <!-- Butang Pautan -->
     <div class="row">
         <a href="{{ url('/') }}" class="btn btn-primary">Indeks</a>
         <a href="{{ route('advanced.index') }}" class="btn btn-primary">Hubungan</a>
@@ -20,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            @isset($dep_emp)
+            @isset ($dep_emp)
                 @foreach ($dep_emp as $de)
                     <tr>
                         <td>{{ $de->emp_no }}</td>
@@ -37,3 +40,29 @@
         </tbody>
     </table>
 @endsection
+
+@section('scripts')
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready(function() {
+    var table = $('#relationsTable').DataTable({
+        ajax: {
+            url: '{{ route("advanced.rel1") }}',
+            dataSrc: ''
+        },
+        columns: [
+            { data: 'emp_no' },
+            { data: 'dept_no' },
+            { data: 'from_date' },
+            { data: 'to_date' }
+        ]
+    });
+
+    $('#loadRelations').on('click', function() {
+        table.ajax.reload();
+    });
+});
+</script>
+@endsection
+
+

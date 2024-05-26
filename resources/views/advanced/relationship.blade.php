@@ -10,6 +10,13 @@
         <a href="{{ route('advanced.datatable') }}" class="btn btn-primary">Data Table</a>
     </div>
 
+    <div>
+        <button id="loadRelations" class="btn btn-primary">Muat Hubungan</button>
+        <a href="{{ route('advanced.rel1') }}" class="btn btn-primary">Muat Data Hubungan</a>
+        <a href="{{ route('advanced.rel2') }}" class="btn btn-primary">Muat Data Hubungan</a>
+    </div>
+
+
     <table id="relationsTable" class="display" style="width:100%">
         <thead>
             <tr>
