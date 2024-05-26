@@ -13,6 +13,16 @@ class MethodSpoofingController extends Controller
         // dd($departments);
         return view('forms.index', compact('departments'));
     }
+    public function forms_put(Request $request, $dept_no)
+    {
+        $department = Department::find($dept_no);
+        return view('forms.put', compact('department'));
+    }
+    public function forms_patch(Request $request, $dept_no)
+    {
+        $department = Department::find($dept_no);
+        return view('forms.patch', compact('department'));
+    }
     public function destroy(Request $request, $dept_no)
     {
         // dd($request,$dept_no);
@@ -29,19 +39,23 @@ class MethodSpoofingController extends Controller
         $department->save();
         return redirect()->route('forms.index')->with('success', 'Data department berjaya ditambah');
     }
-    public function put(Request $request, $id)
+    public function put(Request $request, $dept_no)
     {
-        $department = Department::find($id);
+        // dd($request, $dept_no);
+        $department = Department::find($dept_no);
         $department->dept_no = $request->dept_no;
         $department->dept_name = $request->dept_name;
+        // dd($request, $dept_no, $department);
         $department->save();
         return redirect()->route('forms.index')->with('success', 'Data department berjaya dikemaskini melalui method put');
     }
-    public function patch(Request $request, $id)
+    public function patch(Request $request, $dept_no)
     {
-        $department = Department::find($id);
+        // dd($request, $dept_no);
+        $department = Department::find($dept_no);
         $department->dept_no = $request->dept_no;
         $department->dept_name = $request->dept_name;
+        // dd($request, $dept_no, $department);
         $department->save();
         return redirect()->route('forms.index')->with('success', 'Data department berjaya dikemaskini melalui method patch');
     }

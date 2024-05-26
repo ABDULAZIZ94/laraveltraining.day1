@@ -80,15 +80,14 @@ Route::group(['prefix'=>'method'], function(){
     //frontend view
     Route::view('/create', 'forms.create')->name('forms.create');
     Route::view('/show', 'forms.show')->name('forms.show');
-    Route::view('/put', 'forms.put')->name('forms.put');
+    Route::get('/put/{dept_no}', [MethodSpoofingController::class, 'forms_put'])->name('forms.put');
     Route::view('/delete', 'forms.delete')->name('forms.delete');
-    Route::view('/patch', 'forms.patch')->name('forms.patch');
+    Route::get('/patch/{dept_no}', [MethodSpoofingController::class, 'forms_patch'])->name('forms.patch');
     //backend controller function
-    Route::post('/spoof', [MethodSpoofingController::class, 'store'])->name('spoof.store');
-    Route::get('/spoof/{dept_no}', [MethodSpoofingController::class, 'show'])->name('spoof.show');
-    Route::put('/spoof/{dept_no}', [MethodSpoofingController::class, 'update'])->name('spoof.update');
-    Route::patch('/spoof/{dept_no}', [MethodSpoofingController::class, 'modify'])->name('spoof.modify');
-    Route::delete('/spoof/{dept_no}', [MethodSpoofingController::class, 'destroy'])->name('spoof.destroy');
+    Route::post('/spoof', [MethodSpoofingController::class, 'create'])->name('spoof.create');
+    Route::put('/spoof/{dept_no}', [MethodSpoofingController::class, 'put'])->name('spoof.put');
+    Route::patch('/spoof/{dept_no}', [MethodSpoofingController::class, 'patch'])->name('spoof.patch');
+    Route::delete('/spoof/{dept_no}', [MethodSpoofingController::class, 'destroy'])->name('spoof.delete');
 });
 
 

@@ -9,7 +9,7 @@
                         Tambah Department Baru
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('spoof.store') }}" method="POST" class="needs-validation" novalidate>
+                        <form action="{{ route('spoof.create') }}" method="POST" class="needs-validation" novalidate>
                             @csrf
                             <div class="form-group">
                                 <label for="dept_no">No. Department:</label>

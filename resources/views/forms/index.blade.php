@@ -54,7 +54,7 @@
 
                         <a href="{{ route('forms.put', $department->dept_no) }}" class="btn btn-secondary">Put</a>
                         <a href="{{ route('forms.patch', $department->dept_no) }}" class="btn btn-secondary">Patch</a>
-                          <form action="{{ route('spoof.destroy', $department->dept_no) }}" method="POST">
+                          <form action="{{ route('spoof.delete', $department->dept_no) }}" method="POST">
                         {{-- <form action="/method/spoof/{{$department->dept_no}}" method="POST"> --}}
                             @method('DELETE')
                             @csrf
