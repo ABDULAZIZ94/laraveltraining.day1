@@ -60,11 +60,11 @@
                     <td>{{ $employee->gender }}</td>
                     <td>{{ $employee->hire_date }}</td>
                     <td>
-                        <a href="/employees/show/{{ $employee->emp_no }}" class="btn btn-primary">Lihat</a>
-                        {{-- <a href="{{ route('employees.show', $employee->emp_no) }}" class="btn btn-primary">Lihat</a> --}}
+                        <a href="/employees/show/{{ $employee->emp_no }}" class="btn btn-primary ">Lihat</a>
+                        {{-- <a href="{{ route('employees.show', $employee->emp_no) }}" class="btn btn-primary ">Lihat</a> --}}
                         {{-- <form action="{{ route('employees.show', $employee->emp_no) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-primary">Lihat</button>
+                            <button type="submit" class="btn btn-primary ">Lihat</button>
                         </form> --}}
 
                         <a href="/employees/edit/{{ $employee->emp_no }}" class="btn btn-warning">Edit</a>

@@ -18,7 +18,7 @@
                             <label for="password" class="form-label">Kata Laluan</label>
                             <input type="password" class="form-control" id="password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Log Masuk</button>
+                        <button type="submit" class="btn btn-primary ">Log Masuk</button>
                     </form>
                 </div>
             </div>

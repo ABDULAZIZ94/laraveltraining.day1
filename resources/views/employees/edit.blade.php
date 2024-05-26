@@ -43,7 +43,7 @@
                     required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Kemaskini</button>
+            <button type="submit" class="btn btn-primary ">Kemaskini</button>
         </form>
     </div>
 @endsection

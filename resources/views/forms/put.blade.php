@@ -17,7 +17,7 @@
             <input type="text" class="form-control" id="dept_name" name="dept_name" value="{{ $department->dept_name }}" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Kemaskini</button>
+        <button type="submit" class="btn btn-primary ">Kemaskini</button>
     </form>
 </div>
 @endsection

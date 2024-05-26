@@ -55,7 +55,7 @@
                                 <div class="invalid-feedback">Sila masukkan tarikh lahir.</div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary ">Simpan</button>
                         </form>
                     </div>
                 </div>

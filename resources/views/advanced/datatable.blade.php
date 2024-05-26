@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <button id="loadRelations" class="btn btn-primary">Muat Hubungan</button>
+    <button id="loadRelations" class="btn btn-primary ">Muat Hubungan</button>
 
     <!-- Butang Pautan -->
-    <div class="row">
-        <a href="{{ url('/') }}" class="btn btn-primary">Indeks</a>
-        <a href="{{ route('advanced.index') }}" class="btn btn-primary">Hubungan</a>
-        <a href="{{ route('advanced.requestparameter') }}" class="btn btn-primary">Parameter Pilihan</a>
-        <a href="{{ route('advanced.middleware') }}" class="btn btn-primary">Middleware</a>
-        <a href="{{ route('advanced.ajax') }}" class="btn btn-primary">AJAX</a>
-        <a href="{{ route('advanced.datatable') }}" class="btn btn-primary">Data Table</a>
+    <div >
+        <a href="{{ route('advanced.index') }}" class="btn btn-primary ">Indeks</a>
+        <a href="{{ route('advanced.relations') }}" class="btn btn-primary ">Hubungan</a>
+        <a href="{{ route('advanced.requestparameter') }}" class="btn btn-primary ">Parameter Pilihan</a>
+        <a href="{{ route('advanced.middleware') }}" class="btn btn-primary ">Middleware</a>
+        <a href="{{ route('advanced.ajax') }}" class="btn btn-primary ">AJAX</a>
+        <a href="{{ route('advanced.datatable') }}" class="btn btn-primary ">Data Table</a>
     </div>
 
     <table id="relationsTable" class="display" style="width:100%">
