@@ -50,7 +50,6 @@
                         {{-- <a href="{{ route('employees.show', ['id' => $employee->id]) }}">Lihat Pekerja</a> --}}
                         <a href="{{ route('employees.edit', ['id' => $employee->id]) }}">Edit</a>
                         <form action="{{ route('employees.destroy', ['id' => $employee->id]) }}" method="POST">
-                            @method('DELETE')
                             @csrf
                             <button type="submit">Padam</button>
                         </form>

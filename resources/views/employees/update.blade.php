@@ -5,8 +5,6 @@
     <h1>Kemaskini Maklumat Pekerja</h1>
     <form method="POST" action="{{ route('employees.update', ['id' => $employee->id]) }}">
         @csrf
-        @method('PUT')
-
         <div class="form-group">
             <label for="name">Nama:</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $employee->name }}" required>
