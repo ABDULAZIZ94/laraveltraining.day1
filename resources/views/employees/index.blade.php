@@ -38,6 +38,7 @@
 
     <a href="{{ route('employees.create') }}" class="btn btn-success">Tambah Pekerja Baru</a>
     <a href="{{ route('employees.index') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ route('index') }}" class="btn btn-secondary">Utama</a>
 
     <table>
         <thead>
@@ -59,7 +60,13 @@
                     <td>{{ $employee->gender }}</td>
                     <td>{{ $employee->hire_date }}</td>
                     <td>
-                        <a href="{{ route('employees.show', $employee->emp_no) }}" class="btn btn-primary">Lihat</a>
+                        <a href="/employees/show/{{ $employee->emp_no }}" class="btn btn-primary">Lihat</a>
+                        {{-- <a href="{{ route('employees.show', $employee->emp_no) }}" class="btn btn-primary">Lihat</a> --}}
+                        {{-- <form action="{{ route('employees.show', $employee->emp_no) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Lihat</button>
+                        </form> --}}
+
                         <a href="/employees/edit/{{ $employee->emp_no }}" class="btn btn-warning">Edit</a>
                         <form action="/employees/destroy/{{ $employee->emp_no }}" method="POST">
                             @dump($employee->emp_no)

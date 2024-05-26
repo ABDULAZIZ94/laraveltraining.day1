@@ -19,8 +19,9 @@ class EmployeesController extends Controller
         $employees->softDeleteEmployee($emp_no);
         return redirect()->route('employees.index')->with('success', 'Data pegawai berjaya dihapuskan');
     }
-    public function show($emp_no)
+    public function show(Request $request, $emp_no)
     {
+        // dd($request, $emp_no);
         $employee = Employees::find($emp_no);
         return view('employees.show', compact('employee'));
     }

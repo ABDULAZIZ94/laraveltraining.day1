@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::view('/', "index");
+Route::view('/', "index")->name('index');
 
 Route::view('/internal', 'internal.index')->name('internal.index')->middleware('auth');
 Route::view('/bypass', 'internal.index')->name('internal.bypass');
