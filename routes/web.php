@@ -25,13 +25,14 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', "index");
 
 Route::group(['prefix'=>'employees'], function(){
-    Route::get('/', [EmployeesController::class, 'index'])->name('employees.index');
-    Route::get('/show/{id}', [EmployeesController::class, 'show'])->name('employees.show');
     Route::view('/create', 'employees.create')->name('employees.create');
+    Route::get('/edit/{emp_no}', [EmployeesController::class, 'edit'])->name('employees.edit');
+
+    Route::get('/', [EmployeesController::class, 'index'])->name('employees.index');
+    Route::get('/show/{emp_no}', [EmployeesController::class, 'show'])->name('employees.show');
+    Route::post('/update/{emp_no}', [EmployeesController::class, 'update'])->name('employees.update');
     Route::post('/store', [EmployeesController::class, 'store'])->name('employees.store');
-    Route::post('/update', [EmployeesController::class, 'update'])->name('employees.put');
-    Route::post('/edit', [EmployeesController::class, 'edit'])->name('employees.edit');
-    Route::post('/destroy', [EmployeesController::class, 'destroy'])->name('employees.destroy');
+    Route::post('/destroy/{emp_no}', [EmployeesController::class, 'destroy'])->name('employees.destroy');
 });
 
 // Route::name('admin.')->group(function () {

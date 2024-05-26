@@ -12,16 +12,16 @@ class EmployeesController extends Controller
         $employees = Employees::paginate(10); // Menggunakan pagination untuk mengambil 10 rekod
         return view('employees.index', compact('employees'));
     }
-    public function destroy(Request $request)
+    public function destroy(Request $request, $emp_no)
     {
-        dd($request);
+        // dd($request, $emp_no);
         $employees = new Employees;
-        $employees->softDeleteEmployee($request->id);
+        $employees->softDeleteEmployee($emp_no);
         return redirect()->route('employees.index')->with('success', 'Data pegawai berjaya dihapuskan');
     }
-    public function show($id)
+    public function show($emp_no)
     {
-        $employees = Employees::find($id);
+        $employees = Employees::find($emp_no);
         return view('employees.show', compact('employees'));
     }
     public function store(Request $request)
@@ -35,15 +35,15 @@ class EmployeesController extends Controller
         $employees->save();
         return redirect()->route('employees.index')->with('success', 'Data pegawai berjaya ditambah');
     }
-    public function edit($id)
+    public function edit($emp_no)
     {
-        $employees = Employees::find($id);
-        return view('employees.edit', compact('employees'));
+        $employee = Employees::find($emp_no);
+        return view('employees.edit', compact('employee'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request, $emp_no)
     {
-        $employees = Employees::find($id);
-        $employees->employee_id = $request->employee_id;
+        $employees = Employees::find($emp_no);
+        $employees->emp_no = $request->emp_no;
         $employees->first_name = $request->first_name;
         $employees->last_name = $request->last_name;
         $employees->gender = $request->gender;

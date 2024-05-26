@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- Tambahkan notifikasi di sini --}}
+    @if (session('success'))
+        <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 20px;">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px;">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <style>
         table {
             width: 100%;
@@ -46,10 +59,10 @@
                     <td>{{ $employee->gender }}</td>
                     <td>{{ $employee->hire_date }}</td>
                     <td>
-                        <a href="{{ route('employees.edit', ['id' => $employee->id]) }}" >Kemaskini Pekerja</a>
-                        {{-- <a href="{{ route('employees.show', ['id' => $employee->id]) }}">Lihat Pekerja</a> --}}
-                        <a href="{{ route('employees.edit', ['id' => $employee->id]) }}">Edit</a>
-                        <form action="{{ route('employees.destroy', ['id' => $employee->id]) }}" method="POST">
+                        {{-- <a href="{{ route('employees.show', ['id' => $employee->emp_no]) }}">Lihat Pekerja</a> --}}
+                        <a href="/employees/edit/{{ $employee->emp_no }}">Edit</a>
+                        <form action="/employees/destroy/{{ $employee->emp_no }}" method="POST">
+                            @dump($employee->emp_no)
                             @csrf
                             <button type="submit">Padam</button>
                         </form>

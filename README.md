@@ -34,6 +34,9 @@ php artisan db:seed --class=UserSeeder
 php artisan migrate:fresh --seed
 php artisan migrate:fresh --seed --seeder=UserSeeder
 php artisan make:migration add_softdelete_employees
+composer dump-autoload
+php artisan route:list
+
 
 # optional command
 php artisan migrate:fresh --seed --seeder=UserSeeder
