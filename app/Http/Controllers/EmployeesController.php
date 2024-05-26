@@ -28,9 +28,11 @@ class EmployeesController extends Controller
     {
         // dd($request);
         $employees = new Employees; 
+        $employees->emp_no = $request->emp_no; // Menyimpan nombor pekerja
         $employees->first_name = $request->first_name;
         $employees->last_name = $request->last_name;
         $employees->gender = $request->gender;
+        $employees->birth_date = $request->birth_date; // Menyimpan tarikh lahir
         $employees->hire_date = $request->hire_date;
         $employees->save();
         return redirect()->route('employees.index')->with('success', 'Data pegawai berjaya ditambah');

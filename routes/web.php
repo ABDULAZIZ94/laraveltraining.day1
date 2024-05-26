@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', "index");
 
+Route::view('/internal', 'internal.index')->name('internal.index')->middleware('auth');
+Route::view('/bypass', 'internal.index')->name('internal.bypass');
+
+//contoh crud yang biasa
 Route::group(['prefix'=>'employees'], function(){
     Route::view('/create', 'employees.create')->name('employees.create');
     Route::get('/edit/{emp_no}', [EmployeesController::class, 'edit'])->name('employees.edit');
@@ -50,6 +54,7 @@ Route::group(['prefix'=>'employees'], function(){
 //     // Only authenticated users may enter...
 // })->middleware('auth');
 
+//contoh custom middleware
 Route::view('login', 'auth.login')->name('login');
 Route::view('login2', 'auth.login',['name'=>'Laravel', 'age'=>20])->name('login2');
 
@@ -68,6 +73,7 @@ Route::view('login2', 'auth.login',['name'=>'Laravel', 'age'=>20])->name('login2
 //     // ...
 // })->middleware('role:editor');
 
+//contoh 5 http request method
 Route::group(['prefix'=>'method'], function(){
     //function module index page
     Route::get('/', [MethodSpoofingController::class, 'index'])->name('forms.index');
