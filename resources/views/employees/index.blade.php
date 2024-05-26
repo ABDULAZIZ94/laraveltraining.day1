@@ -59,8 +59,8 @@
                     <td>{{ $employee->gender }}</td>
                     <td>{{ $employee->hire_date }}</td>
                     <td>
-                        {{-- <a href="{{ route('employees.show', ['id' => $employee->emp_no]) }}">Lihat Pekerja</a> --}}
-                        <a href="/employees/edit/{{ $employee->emp_no }}">Edit</a>
+                        <a href="{{ route('employees.show', $employee->emp_no) }}" class="btn btn-primary">Lihat</a>
+                        <a href="/employees/edit/{{ $employee->emp_no }}" class="btn btn-warning">Edit</a>
                         <form action="/employees/destroy/{{ $employee->emp_no }}" method="POST">
                             @dump($employee->emp_no)
                             @csrf

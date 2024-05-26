@@ -21,8 +21,8 @@ class EmployeesController extends Controller
     }
     public function show($emp_no)
     {
-        $employees = Employees::find($emp_no);
-        return view('employees.show', compact('employees'));
+        $employee = Employees::find($emp_no);
+        return view('employees.show', compact('employee'));
     }
     public function store(Request $request)
     {
