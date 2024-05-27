@@ -102,6 +102,7 @@ Route::prefix('advanced')->group(function () {
     // Route::get('/', [AdvancedController::class, 'index'])->name('advanced.index');
     Route::get('/rel1', [AdvancedController::class, 'rel1'])->name('advanced.rel1');
     Route::get('/rel2', [AdvancedController::class, 'rel2'])->name('advanced.rel2');
-    // Route::get('/rel3', [AdvancedController::class, 'rel3'])->name('advanced.rel3');
+    Route::post('/umur', [AdvancedController::class, 'umur'])->name('advanced.umur')->middleware('checkAge');
+    Route::get('/seniorcitizen', [AdvancedController::class, 'seniorcitizen'])->name('advanced.seniorcitizen');
 });
 

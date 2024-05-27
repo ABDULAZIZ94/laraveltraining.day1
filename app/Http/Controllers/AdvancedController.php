@@ -42,5 +42,14 @@ class AdvancedController extends Controller
         // dd($dep_manager);
         return response()->json($dep_manager);
     }
+    
+    public function umur(Request $request){
+        $age = $request->age;
+        return response()->json($age);
+    }
 
+    public function seniorcitizen(Request $request){
+        // dd($request);
+        return view('test.seniorcitizen')->with('message', session('message'));
+    }
 }

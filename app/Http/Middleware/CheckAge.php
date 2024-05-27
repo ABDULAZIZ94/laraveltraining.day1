@@ -15,8 +15,14 @@ class CheckAge
      */
     public function handle($request, Closure $next)
     {
-        if ($request->age <= 200) {
-            return redirect('web');
+        if ($request->age <= 12) {
+            return redirect()->route('advanced.index')->with('message', 'Anda masih kanak-kanak');
+        } else if ($request->age > 12 && $request->age <= 19) {
+            return redirect()->route('advanced.index')->with('message', 'Anda remaja');
+        } else if ($request->age > 19 && $request->age <= 59) {
+            return redirect()->route('advanced.index')->with('message', 'Anda dewasa');
+        } else {
+            return redirect()->route('advanced.seniorcitizen')->with('message', 'Anda warga emas');
         }
 
         return $next($request);

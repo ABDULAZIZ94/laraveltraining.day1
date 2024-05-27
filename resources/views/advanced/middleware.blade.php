@@ -12,9 +12,12 @@
 
     <!-- Bahagian baru untuk input umur -->
     <div>
-        <label for="ageInput">Masukkan Umur:</label>
-        <input type="number" id="ageInput" name="age" min="1" max="100" required>
-        <button type="submit">Hantar</button>
+        <form action="{{ route('advanced.umur') }}" method="POST">
+            @csrf
+            <label for="ageInput">Masukkan Umur:</label>
+            <input type="number" id="ageInput" name="age" min="1" max="100" required>
+            <button type="submit">Hantar</button>
+        </form>
     </div>
 
 @endsection
