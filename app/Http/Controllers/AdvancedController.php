@@ -15,13 +15,13 @@ class AdvancedController extends Controller
         return view('advanced.index');
     }
 
-    public function join1($id)
+    public function join1()
     {
         $employees = Dep_Emp::join('employees', 'dept_emp.emp_no', '=', 'employees.emp_no')
         ->join('departments', 'dept_emp.dept_no', '=', 'departments.dept_no')
         ->select('employees.emp_no', 'employees.first_name', 'employees.last_name', 'departments.dept_name')
         ->get();
-        dd($employees);
+        // dd($employees);
         return response()->json($employees);
     }
 
@@ -31,16 +31,22 @@ class AdvancedController extends Controller
         return view('advanced.index', compact('dep_emp'));
     }
 
-    public function rel1(){
+    public function relrec1(){
         $dep_emp = Dep_Emp::get();
         // dd($dep_emp);
         return response()->json($dep_emp);
     }
 
-    public function rel2(){
+    public function relrec2(){
         $dep_manager = Dep_Manager::get();
         // dd($dep_manager);
         return response()->json($dep_manager);
+    }
+
+    public function rel1(){
+        $dep_emp = Dep_Emp::with('employees')->get();
+        // dd($dep_emp);
+        return response()->json($dep_emp);
     }
     
     public function umur(Request $request){
