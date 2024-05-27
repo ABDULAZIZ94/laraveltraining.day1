@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div >
+    <div class="my-3">
         <a href="{{ route('advanced.index') }}" class="btn btn-primary ">Indeks</a>
         <a href="{{ route('advanced.relations') }}" class="btn btn-primary ">Hubungan</a>
         <a href="{{ route('advanced.requestparameter') }}" class="btn btn-primary ">Parameter Pilihan</a>
@@ -10,10 +10,10 @@
         <a href="{{ route('advanced.datatable') }}" class="btn btn-primary ">Data Table</a>
     </div>
 
-    <div>
-        <button id="loadRelations" class="btn btn-primary ">Muat Hubungan</button>
-        <a href="{{ route('advanced.rel1') }}" class="btn btn-primary ">Muat Data Hubungan</a>
-        <a href="{{ route('advanced.rel2') }}" class="btn btn-primary ">Muat Data Hubungan</a>
+    <div class="my-3">
+        <a href="{{ route('advanced.rel1') }}" class="btn btn-primary ">Muat Data Hubungan 1</a>
+        <a href="{{ route('advanced.rel2') }}" class="btn btn-primary ">Muat Data Hubungan 2</a>
+        {{-- <a href="{{ route('advanced.rel3') }}" class="btn btn-primary ">Muat Data Hubungan 3</a> --}}
     </div>
 
 

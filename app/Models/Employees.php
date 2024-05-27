@@ -40,6 +40,10 @@ class Employees extends Model
         'hire_date' => 'datetime:Y-m-d'
     ];
 
+    public function dep_emp()
+    {
+        return $this->belongsToMany(Dep_Emp::class, 'dept_emp', 'emp_no', 'dept_no');
+    }
 
     /**
      * Fungsi untuk soft delete pekerja berdasarkan nombor pekerja.

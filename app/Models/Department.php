@@ -10,19 +10,22 @@ class Department extends Model
 {
     use HasFactory;
 
-    protected $table = 'departments';
-    protected $primaryKey = 'dept_no';
-    public $timestamps = false;
-    protected $keyType = 'string';
+    protected $table = 'departments'; // Nama table
+    protected $primaryKey = 'dept_no'; // Kunci utama
+    public $incrementing = false; // Tidak auto-increment kerana kunci utama adalah char
+    public $timestamps = false; // Tiada timestamps
+    protected $keyType = 'string'; // Jenis kunci utama adalah string
 
     protected $fillable = [
-        'dept_no',
-        'dept_name',
+        'dept_no', // Nombor jabatan
+        'dept_name', // Nama jabatan
     ];
 
-    public function employees()
+    // Hubungan dengan model lain (jika ada)
+    public function dep_emp()
     {
         return $this->belongsToMany(Dep_Emp::class, 'dept_emp', 'emp_no', 'dept_no');
     }
 }
+
 

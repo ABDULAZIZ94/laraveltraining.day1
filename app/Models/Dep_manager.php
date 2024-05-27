@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dep_manager extends Model
+class Dep_Manager extends Model
 {
     use HasFactory;
 
-    protected $table = 'department_employees';
+    protected $table = 'dept_manager';
 
     protected $fillable = [
         'emp_no', 

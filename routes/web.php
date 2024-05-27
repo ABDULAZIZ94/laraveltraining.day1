@@ -95,8 +95,8 @@ Route::prefix('advanced')->group(function () {
     Route::view('/','advanced.index')->name('advanced.index');
     Route::view('/ajax', 'advanced.ajax')->name('advanced.ajax');
     Route::view('/datatable', 'advanced.ajax')->name('advanced.datatable');
-    Route::view('/middleware', 'advanced.ajax')->name('advanced.middleware');
-    Route::view('/relations', 'advanced.ajax')->name('advanced.relations');
+    Route::view('/middleware', 'advanced.middleware')->name('advanced.middleware');
+    Route::view('/relations', 'advanced.relations')->name('advanced.relations');
     Route::view('/requestparameter', 'advanced.requestparameter')->name('advanced.requestparameter');
 
     // Route::get('/', [AdvancedController::class, 'index'])->name('advanced.index');
