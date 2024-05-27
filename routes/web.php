@@ -100,9 +100,11 @@ Route::prefix('advanced')->group(function () {
     Route::view('/requestparameter', 'advanced.requestparameter')->name('advanced.requestparameter');
 
     // Route::get('/', [AdvancedController::class, 'index'])->name('advanced.index');
-    Route::get('/rel1', [AdvancedController::class, 'rel1'])->name('advanced.rel1');
-    Route::get('/rel2', [AdvancedController::class, 'rel2'])->name('advanced.rel2');
+    Route::get('/relrec1', [AdvancedController::class, 'relrec1'])->name('advanced.relrec1');
+    Route::get('/relrec2', [AdvancedController::class, 'relrec2'])->name('advanced.relrec2');
     Route::post('/umur', [AdvancedController::class, 'umur'])->name('advanced.umur')->middleware('checkAge');
     Route::get('/seniorcitizen', [AdvancedController::class, 'seniorcitizen'])->name('advanced.seniorcitizen');
+    Route::get('/rel1', [AdvancedController::class, 'rel1'])->name('advanced.rel1');
+    Route::get('/join1', [AdvancedController::class, 'join1'])->name('advanced.join1');
 });
 

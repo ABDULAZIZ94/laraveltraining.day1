@@ -11,9 +11,10 @@
     </div>
 
     <div class="my-3">
+        <a href="{{ route('advanced.relrec1') }}" class="btn btn-primary ">Muat Data Rekod Hubungan 1</a>
+        <a href="{{ route('advanced.relrec2') }}" class="btn btn-primary ">Muat Data Rekod Hubungan 2</a>
         <a href="{{ route('advanced.rel1') }}" class="btn btn-primary ">Muat Data Hubungan 1</a>
-        <a href="{{ route('advanced.rel2') }}" class="btn btn-primary ">Muat Data Hubungan 2</a>
-        {{-- <a href="{{ route('advanced.rel3') }}" class="btn btn-primary ">Muat Data Hubungan 3</a> --}}
+        <a href="{{ route('advanced.join1') }}" class="btn btn-primary ">Muat Data Join 1</a>
     </div>
 
 
