@@ -10,7 +10,7 @@
         <a href="{{ route('advanced.datatable') }}" class="btn btn-primary">Data Table</a>
     </div>
 
-    <table id="relationsTable" class="display" style="width:100%">
+    <table id="relationsTable" class="display class1" style="width:100%">
         <thead>
             <tr>
                 <th>No. Pekerja</th>
